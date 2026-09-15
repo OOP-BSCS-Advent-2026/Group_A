@@ -11,10 +11,10 @@ public class GroupA_BusinessSimulator {
         double[] prices = {555.66, 6666.00, 44444.00, 444.00};
         int[] quantities = new int[items.length];
 
+        displayInventory(items, prices);
+
         // Collect and validate the quantity for each product before calculating totals.
         for (int i = 0; i < items.length; i++) {
-            // Show the current product and ask the customer how many units they want.
-            System.out.println((i + 1) + ". " + items[i] + " UGX " + prices[i]);
             System.out.print("Enter quantity for " + items[i] + ": ");
 
             // Keep asking until the user enters a whole number that is zero or greater.
@@ -72,6 +72,13 @@ public class GroupA_BusinessSimulator {
         // Send all calculated order details to the receipt-printing method.
         printReceipt(items, quantities, afterDiscount, discountMsg, total);
         input.close();
+    }
+
+    public static void displayInventory(String[] items, double[] prices) {
+        for (int i = 0; i < items.length; i++) {
+            System.out.println((i + 1) + ". " + items[i] + " - UGX " + formatMoney(prices[i]));
+        }
+        System.out.println();
     }
 
     public static double calculateSubtotal(int index, double price, int quantity) {

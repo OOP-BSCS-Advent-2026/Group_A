@@ -12,7 +12,6 @@ public class GroupA_BusinessSimulator {
         int[] quantities = new int[items.length];
 
         displayInventory(items, prices);
-
         // Collect and validate the quantity for each product before calculating totals.
         for (int i = 0; i < items.length; i++) {
             System.out.print("Enter quantity for " + items[i] + ": ");
